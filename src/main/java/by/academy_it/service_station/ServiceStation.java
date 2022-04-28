@@ -1,5 +1,6 @@
 package by.academy_it.service_station;
 
+import by.academy_it.service_station.entity.Client;
 import by.academy_it.service_station.entity.Mechanic;
 import by.academy_it.service_station.entity.MechanicDetails;
 import by.academy_it.service_station.entity.Orders;
@@ -10,11 +11,11 @@ import javax.persistence.EntityManager;
 import java.util.Set;
 
 /**
- * есть список  слесарей (+ таблица с его писанием)
+ * есть список  слесарей (+ таблица с его описанием)
  * потом есть таблица машин для ремонта
  * таблица запчастей для каждой машины
  * потом есть таблица перечня работ с расценками
- * есть таблица заказов+
+ * есть таблица заказов
  * есть таблица клиентов
  * при заказе указывается клиент
  * марка авто
@@ -47,6 +48,13 @@ public class ServiceStation {
 
         mechanicDetails.setMechanic(mechanic);
 
+        Client client = Client.builder()
+                .nameClient("Konstantin")
+                .surnameClient("Shilko")
+                .telephoneClient("375441234577")
+                .build();
+
+        client.setOrders(Set.of(orders1));
 
         EntityManager entityManager = HibernateUtil.getEntityManager();
         entityManager.getTransaction().begin();
@@ -54,14 +62,16 @@ public class ServiceStation {
         entityManager.persist(mechanic);
         entityManager.persist(orders);
         Mechanic mechanic1 = entityManager.find(Mechanic.class, 1);
-       MechanicDetails mechanicDetails1 = entityManager.find(MechanicDetails.class,1);
-        Orders orders2 = entityManager.find(Orders.class,1);
+        MechanicDetails mechanicDetails1 = entityManager.find(MechanicDetails.class, 1);
+        Orders orders2 = entityManager.find(Orders.class, 1);
+        entityManager.persist(client);
+        Client client1 = entityManager.find(Client.class, 1);
         entityManager.getTransaction().commit();
         HibernateUtil.close();
         System.out.println();
         System.out.println(mechanic1.toString());
         System.out.println(mechanicDetails1.toString());
         System.out.println(orders2.toString());
-
+        System.out.println(client1.toString());
     }
 }

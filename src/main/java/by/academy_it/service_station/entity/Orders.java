@@ -10,11 +10,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Builder
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
-@EqualsAndHashCode
 @Entity
 @Table(name = "orders")
 public class Orders implements Serializable {

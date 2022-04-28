@@ -4,6 +4,7 @@ import by.academy_it.service_station.entity.Mechanic;
 import by.academy_it.service_station.entity.MechanicDetails;
 import by.academy_it.service_station.entity.Orders;
 import by.academy_it.service_station.util.HibernateUtil;
+import org.hibernate.criterion.Order;
 
 import javax.persistence.EntityManager;
 import java.util.Set;
@@ -28,27 +29,39 @@ public class ServiceStation {
                 .nameOrders("Change wheel")
                 .build();
 
-        MechanicDetails mechanicDetails = MechanicDetails.builder()
-                .experienceMechanic("Middle")
-                .salaryMechanic("1500 Byn")
+        Orders orders1 = Orders.builder()
+                .nameOrders("Repair engine")
                 .build();
-
         Mechanic mechanic = Mechanic.builder()
                 .nameMechanic("Alexander")
                 .surnameMechanic("Grigorovich")
                 .telephoneMechanic("375298187893")
                 .build();
 
-        mechanic.setOrders(Set.of(orders));
+        mechanic.setOrders(Set.of(orders, orders1));
+
+        MechanicDetails mechanicDetails = MechanicDetails.builder()
+                .experienceMechanic("Middle")
+                .salaryMechanic("1500 Byn")
+                .build();
+
+        mechanicDetails.setMechanic(mechanic);
+
 
         EntityManager entityManager = HibernateUtil.getEntityManager();
         entityManager.getTransaction().begin();
+        entityManager.persist(mechanicDetails);
         entityManager.persist(mechanic);
         entityManager.persist(orders);
         Mechanic mechanic1 = entityManager.find(Mechanic.class, 1);
+       MechanicDetails mechanicDetails1 = entityManager.find(MechanicDetails.class,1);
+        Orders orders2 = entityManager.find(Orders.class,1);
         entityManager.getTransaction().commit();
         HibernateUtil.close();
-        System.out.println(mechanic1);
+        System.out.println();
+        System.out.println(mechanic1.toString());
+        System.out.println(mechanicDetails1.toString());
+        System.out.println(orders2.toString());
 
     }
 }

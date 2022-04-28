@@ -11,8 +11,6 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode
-@ToString
 @Entity
 @Table(name = "mechanic")
 public class Mechanic implements Serializable {

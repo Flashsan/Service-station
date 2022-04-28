@@ -1,17 +1,17 @@
 package by.academy_it.service_station.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Builder
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
+@ToString
+//@EqualsAndHashCode
 @Table(name = "client")
 @Entity
 public class Client {
@@ -21,14 +21,20 @@ public class Client {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "name_client")
-    private String nameClient;
+    @Column(name = "name")
+    private String name;
 
-    @Column(name = "surname_client")
-    private String surnameClient;
+    @Column(name = "surname")
+    private String surname;
 
-    @Column(name = "telephone_client")
-    private String telephoneClient;
+    @Column(name = "telephone")
+    private String telephone;
+
+    @OneToOne(
+            mappedBy = "client",
+            cascade = CascadeType.ALL
+    )
+    private ClientDetail clientDetail;
 
     @OneToMany(mappedBy = "client")
     private Set<Orders> orders;

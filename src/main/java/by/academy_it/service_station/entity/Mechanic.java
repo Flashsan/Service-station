@@ -8,9 +8,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Builder
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
+@ToString(exclude = "orders")
+//@EqualsAndHashCode
 @Entity
 @Table(name = "mechanic")
 public class Mechanic implements Serializable {
@@ -20,28 +23,28 @@ public class Mechanic implements Serializable {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "name_mechanic")
-    private String nameMechanic;
+    @Column(name = "name")
+    private String name;
 
-    @Column(name = "surname_mechanic")
-    private String surnameMechanic;
+    @Column(name = "surname")
+    private String surname;
 
-    @Column(name = "telephone_mechanic")
-    private String telephoneMechanic;
+    @Column(name = "telephone")
+    private String telephone;
 
     @OneToOne(
             mappedBy = "mechanic",
             cascade = CascadeType.ALL
     )
-    private MechanicDetails mechanicDetails;
+    private MechanicDetail mechanicDetails;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
-            name = "orders_mechanic",
+            name = "mechanic_orders",
             joinColumns = {@JoinColumn(name = "mechanic_id")},
             inverseJoinColumns = {@JoinColumn(name = "orders_id")}
     )
-    private Set<Orders> orders = new HashSet<Orders>();
+    private Set<Orders> orders = new HashSet<>();
 
 
 }

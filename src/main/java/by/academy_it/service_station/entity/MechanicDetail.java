@@ -8,28 +8,31 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Builder
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
+@ToString (exclude = "mechanic")
+//@EqualsAndHashCode
 @Entity
 @Table(name = "mechanic_details")
-public class MechanicDetails implements Serializable {
+public class MechanicDetail implements Serializable {
 
     @Id
     @GenericGenerator(
-            name = "one-to-one",
+            name = "one-to-one(mechanic-mechanic_detail",
             strategy = "foreign",
             parameters = @Parameter(name = "property", value = "mechanic")
     )
-    @GeneratedValue(generator = "one-to-one")
+    @GeneratedValue(generator = "one-to-one(mechanic-mechanic_detail")
     @Column(name = "mechanic_id")
     private Integer mechanicId;
 
-    @Column(name = "experience_mechanic")
-    private String experienceMechanic;
+    @Column(name = "experience")
+    private String experience;
 
-    @Column(name = "salary_mechanic")
-    private String salaryMechanic;
+    @Column(name = "salary")
+    private String salary;
 
     @OneToOne(fetch = FetchType.LAZY)
     @PrimaryKeyJoinColumn

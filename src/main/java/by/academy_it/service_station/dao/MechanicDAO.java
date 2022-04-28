@@ -1,4 +1,7 @@
 package by.academy_it.service_station.dao;
 
-public interface MechanicDAO extends EntityDAO{
+import by.academy_it.service_station.entity.Mechanic;
+
+public interface MechanicDAO extends EntityDAO<Mechanic>{
+
 }

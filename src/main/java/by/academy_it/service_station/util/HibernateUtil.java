@@ -22,10 +22,17 @@ public class HibernateUtil {
                 Persistence.createEntityManagerFactory("ServiceStation");
     }
 
+    /**
+     *
+     * @return
+     */
     public static EntityManager getEntityManager() {
         return ENTITY_MANAGER_FACTORY.createEntityManager();
     }
 
+    /**
+     *
+     */
     public static void close() {
         ENTITY_MANAGER_FACTORY.close();
     }

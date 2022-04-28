@@ -5,9 +5,15 @@
              version="2.0">
     <persistence-unit name="ServiceStation">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>by.academy_it.service_station.entity.Car</class>
+        <class>by.academy_it.service_station.entity.CarDetail</class>
+        <class>by.academy_it.service_station.entity.Client</class>
+        <class>by.academy_it.service_station.entity.ClientDetail</class>
         <class>by.academy_it.service_station.entity.Mechanic</class>
-        <class>by.academy_it.service_station.entity.MechanicDetails</class>
-        <class>by.academy_it.service_station.entity.Order</class>
+        <class>by.academy_it.service_station.entity.MechanicDetail</class>
+        <class>by.academy_it.service_station.entity.Orders</class>
+        <class>by.academy_it.service_station.entity.SparePart</class>
+        <class>by.academy_it.service_station.entity.WorkList</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.url"

@@ -1,18 +1,20 @@
 package by.academy_it.service_station.entity;
 
 import lombok.*;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+
 @Builder
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
+@ToString
+//@EqualsAndHashCode
 @Entity
 @Table(name = "orders")
 public class Orders implements Serializable {
@@ -22,14 +24,27 @@ public class Orders implements Serializable {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "name_orders")
-    private String nameOrders;
+    @Column(name = "description_orders")
+    private String descriptionOrders;
 
     @ManyToMany(mappedBy = "orders")
     private Set<Mechanic> mechanic = new HashSet<>();
 
     @ManyToOne
-    @JoinColumn(name="client_id")
+    @JoinColumn(name = "car_id")
+    private Car car;
+
+    @ManyToOne
+    @JoinColumn(name = "workList_id")
+    private WorkList workList;
+
+    @ManyToOne
+    @JoinColumn(name = "client_id")
     private Client client;
+
+    @ManyToOne
+    @JoinColumn(name = "administrator_id")
+    private Administrator administrator;
+
 
 }

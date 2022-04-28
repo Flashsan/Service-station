@@ -28,4 +28,8 @@ public class Orders implements Serializable {
     @ManyToMany(mappedBy = "orders")
     private Set<Mechanic> mechanic = new HashSet<>();
 
+    @ManyToOne
+    @JoinColumn(name="client_id")
+    private Client client;
+
 }

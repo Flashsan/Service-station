@@ -20,6 +20,7 @@
                       value="jdbc:mysql://localhost:3306/service_station?createDatabaseIfNotExist=true"/>
             <property name="javax.persistence.jdbc.user" value="root"/>
             <property name="javax.persistence.jdbc.password" value="grigorovich_1"/>
+            <!--  storage_engine ?          -->
             <property name="hibernate.dialect.storage_engine" value="innodb"/>
             <property name="hibernate.hbm2ddl.auto" value="create"/>
             <property name="hibernate.use_sql_comments" value="true"/>

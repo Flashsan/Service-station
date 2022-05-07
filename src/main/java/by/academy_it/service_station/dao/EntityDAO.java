@@ -34,9 +34,10 @@ public interface EntityDAO<T> {
     void update(List<T> list);
 
     /**
-     * @param id
+     *
+     * @param t
      */
-    void updateById(Integer id);
+    void update(T t);
 
     /**
      * @param list

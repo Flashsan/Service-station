@@ -40,13 +40,17 @@ public class EntityDaoImpl<T> implements EntityDAO<T> {
      */
     @Override
     public T findById(Integer id) {
-        T entity = null;
+        T entityFromTable = null;
         try {
-            entity = entityManager.find(aClass, id);
+            entityManager.getTransaction().begin();
+            entityFromTable = entityManager.find(aClass, id);
         } catch (IllegalArgumentException e) {
+            entityManager.getTransaction().rollback();
             e.printStackTrace();
+        } finally {
+            entityManager.close();
         }
-        return entity;
+        return entityFromTable;
     }
 
     /**
@@ -58,9 +62,11 @@ public class EntityDaoImpl<T> implements EntityDAO<T> {
             entityManager.getTransaction().begin();
             entityManager.persist(t);
             entityManager.getTransaction().commit();
-        }catch(RuntimeException e) {
+        } catch (RuntimeException e) {
             entityManager.getTransaction().rollback();
             e.printStackTrace();
+        } finally {
+            entityManager.close();
         }
     }
 
@@ -69,7 +75,16 @@ public class EntityDaoImpl<T> implements EntityDAO<T> {
      */
     @Override
     public void create(List<T> list) {
-
+        try {
+            entityManager.getTransaction().begin();
+            list.forEach(entityManager::persist);
+            entityManager.getTransaction().commit();
+        } catch (RuntimeException e) {
+            entityManager.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
+            entityManager.close();
+        }
     }
 
     /**
@@ -77,15 +92,33 @@ public class EntityDaoImpl<T> implements EntityDAO<T> {
      */
     @Override
     public void update(List<T> list) {
-
+        try {
+            entityManager.getTransaction().begin();
+            list.forEach(entityManager::merge);
+            entityManager.getTransaction().commit();
+        } catch (RuntimeException e) {
+            entityManager.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
+            entityManager.close();
+        }
     }
 
     /**
-     * @param id
+     * @param t
      */
     @Override
-    public void updateById(Integer id) {
-
+    public void update(T t) {
+        T entityForUpdate = null;
+        try {
+            entityManager.getTransaction().begin();
+            entityManager.merge(t);
+        } catch (IllegalArgumentException e) {
+            entityManager.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
+            entityManager.close();
+        }
     }
 
     /**
@@ -93,7 +126,16 @@ public class EntityDaoImpl<T> implements EntityDAO<T> {
      */
     @Override
     public void deleteAll(List<T> list) {
-
+        try {
+            entityManager.getTransaction().begin();
+            list.forEach(entityManager::remove);
+            entityManager.getTransaction().commit();
+        } catch (RuntimeException e) {
+            entityManager.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
+            entityManager.close();
+        }
     }
 
     /**
@@ -101,6 +143,16 @@ public class EntityDaoImpl<T> implements EntityDAO<T> {
      */
     @Override
     public void deleteById(Integer id) {
-
+        try {
+            entityManager.getTransaction().begin();
+            T entityForDelete = entityManager.find(aClass, id);
+            entityManager.remove(entityForDelete);
+            entityManager.getTransaction().commit();
+        } catch (RuntimeException e) {
+            entityManager.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
+            entityManager.close();
+        }
     }
 }

@@ -3,6 +3,9 @@ package by.academy_it.service_station.dao.impl;
 import by.academy_it.service_station.dao.EntityDAO;
 
 import javax.persistence.EntityManager;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.util.List;
 
 public class EntityDaoImpl<T> implements EntityDAO<T> {
@@ -31,7 +34,13 @@ public class EntityDaoImpl<T> implements EntityDAO<T> {
      */
     @Override
     public List<T> findAll() {
-        return null;
+
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<T> criteriaQuery = criteriaBuilder.createQuery(aClass);
+        Root<T> entityRoot = criteriaQuery.from(aClass);
+        criteriaQuery.select(entityRoot);
+        List<T> tList = entityManager.createQuery(criteriaQuery).getResultList();
+        return tList;
     }
 
     /**

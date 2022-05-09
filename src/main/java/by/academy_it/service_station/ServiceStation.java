@@ -1,5 +1,6 @@
 package by.academy_it.service_station;
 
+import by.academy_it.service_station.dao.impl.AdministratorDaoImpl;
 import by.academy_it.service_station.entity.*;
 import by.academy_it.service_station.util.HibernateUtil;
 
@@ -30,7 +31,7 @@ public class ServiceStation {
     public static void main(String[] args) {
         //Administrator
         Administrator administrator = Administrator.builder()
-                .adminName("Valyshko")
+                .name("Valyshko")
                 .build();
         //Car
         CarDetail carDetail = CarDetail.builder()
@@ -134,5 +135,6 @@ public class ServiceStation {
         System.out.println(workListInformation.toString());
         System.out.println(sparePartInformation.toString());
         System.out.println(ordersInformation.toString());
-    }
+
+         }
 }

@@ -7,6 +7,6 @@
 --%>
 <html>
 <body>
-
+<h2>Hello info!</h2>
 </body>
 </html>

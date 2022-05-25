@@ -6,11 +6,21 @@
 
     <groupId>service-station</groupId>
     <artifactId>service-station</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
     <name>Service-station</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
+
+    <modules>
+        <module>dao</module>
+        <module>servise</module>
+        <module>servlet</module>
+        <module>servise</module>
+        <module>jpa</module>
+    </modules>
+
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

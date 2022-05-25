@@ -3,6 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Service-station.iml" filepath="$PROJECT_DIR$/.idea/Service-station.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dao/dao.iml" filepath="$PROJECT_DIR$/dao/dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jpa/entity.iml" filepath="$PROJECT_DIR$/jpa/entity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/servise/servise.iml" filepath="$PROJECT_DIR$/servise/servise.iml" />
+      <module fileurl="file://$PROJECT_DIR$/servlet/servlet.iml" filepath="$PROJECT_DIR$/servlet/servlet.iml" />
     </modules>
   </component>
 </project>

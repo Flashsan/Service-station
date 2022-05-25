@@ -1,4 +1,4 @@
-package by.academy_it.service_station.dao.impl;
+package by.academy_it.service_station.dao.daoImpl;
 
 import by.academy_it.service_station.dao.WorkListDAO;
 import by.academy_it.service_station.entity.WorkList;

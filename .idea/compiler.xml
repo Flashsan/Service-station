@@ -7,11 +7,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Service-station" />
+        <module name="dao" />
+        <module name="servlet" />
+        <module name="servise" />
+        <module name="entity" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="dao" target="9" />
+      <module name="entity" target="9" />
       <module name="Service-station" target="9" />
+      <module name="servise" target="9" />
+      <module name="servlet" target="9" />
     </bytecodeTargetLevel>
   </component>
 </project>

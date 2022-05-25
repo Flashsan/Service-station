@@ -1,11 +1,9 @@
-package by.academy_it.service_station.dao.impl;
+package by.academy_it.service_station.dao.daoImpl;
 
 import by.academy_it.service_station.dao.ClientDAO;
-import by.academy_it.service_station.dao.EntityDAO;
 import by.academy_it.service_station.entity.Client;
 
 import javax.persistence.EntityManager;
-import java.util.List;
 
 public class ClientDaoImpl extends EntityDaoImpl<Client>
         implements ClientDAO {

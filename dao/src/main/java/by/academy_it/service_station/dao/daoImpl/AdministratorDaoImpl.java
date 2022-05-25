@@ -1,6 +1,7 @@
-package by.academy_it.service_station.dao.impl;
+package by.academy_it.service_station.dao.daoImpl;
 
 import by.academy_it.service_station.dao.AdministratorDAO;
+import by.academy_it.service_station.dao.daoImpl.EntityDaoImpl;
 import by.academy_it.service_station.entity.Administrator;
 
 import javax.persistence.EntityManager;

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <changeSet id="1-add test data to table 'mechanic'"
+               author="Grigorovich">
+        <sql>
+            insert into mechanic(mechanic_name, mechanic_surname, mechanic_work_experience)
+            values ("Петр", "Галкин", "4,5"),
+                   ("Михаил", "Яшкин", "1,5"),
+                   ("Николай", "Альферович", "10")
+        </sql>
+    </changeSet>
+</databaseChangeLog>

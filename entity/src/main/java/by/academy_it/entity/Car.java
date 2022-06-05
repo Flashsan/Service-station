@@ -1,20 +1,19 @@
 package by.academy_it.entity;
 
+
 import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
-
 
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-@ToString(exclude = "orders")
 @EqualsAndHashCode
-@Table(name = "car")
 @Entity
+@Table(name = "car")
 public class Car implements Serializable {
 
     @Id
@@ -35,8 +34,9 @@ public class Car implements Serializable {
 //            mappedBy = "car",
 //            cascade = CascadeType.ALL
 //    )
-//    private CarDetail carDetail;
-//
+//    private CarDetails carDetails;
+
+
 //    @OneToMany(mappedBy = "car")
 //    @Fetch(FetchMode.SELECT)
 //    private Set<Orders> orders = new HashSet<>();

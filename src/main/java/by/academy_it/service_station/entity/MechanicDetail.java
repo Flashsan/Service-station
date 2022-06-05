@@ -18,23 +18,23 @@ import java.io.Serializable;
 @Table(name = "mechanic_details")
 public class MechanicDetail implements Serializable {
 
-//    @Id
-//    @GenericGenerator(
-//            name = "one-to-one(mechanic-mechanic_detail",
-//            strategy = "foreign",
-//            parameters = @Parameter(name = "property", value = "mechanic")
-//    )
-//    @GeneratedValue(generator = "one-to-one(mechanic-mechanic_detail")
-//    @Column(name = "mechanic_id")
-//    private Integer mechanicId;
-//
-//    @Column(name = "experience")
-//    private String experience;
-//
-//    @Column(name = "salary")
-//    private String salary;
-//
-//    @OneToOne(fetch = FetchType.LAZY)
-//    @PrimaryKeyJoinColumn
-//    private Mechanic mechanic;
+    @Id
+    @GenericGenerator(
+            name = "one-to-one(mechanic-mechanic_detail",
+            strategy = "foreign",
+            parameters = @Parameter(name = "property", value = "mechanic")
+    )
+    @GeneratedValue(generator = "one-to-one(mechanic-mechanic_detail")
+    @Column(name = "mechanic_id")
+    private Integer mechanicId;
+
+    @Column(name = "experience")
+    private String experience;
+
+    @Column(name = "salary")
+    private String salary;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @PrimaryKeyJoinColumn
+    private Mechanic mechanic;
 }

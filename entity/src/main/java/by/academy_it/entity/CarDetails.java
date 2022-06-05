@@ -1,6 +1,7 @@
-package by.academy_it.service_station.entity;
+package by.academy_it.entity;
 
 
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
@@ -12,11 +13,10 @@ import java.io.Serializable;
 //@AllArgsConstructor
 //@Getter
 //@Setter
-//@ToString(exclude = "car")
 //@EqualsAndHashCode
-@Table(name = "car_detail")
-@Entity
-public class CarDetail implements Serializable {
+//@Entity
+//@Table(name = "car_details")
+public class CarDetails implements Serializable {
 
 //    @Id
 //    @GenericGenerator(
@@ -28,13 +28,19 @@ public class CarDetail implements Serializable {
 //    @Column(name = "car_id")
 //    private Integer carId;
 //
-//    @Column(name = "color")
-//    private String color;
+//    @Column(name = "car_details_type_engine")
+//    private String typeEngine;
 //
-//    @Column(name = "generation")
-//    private String generation;
+//    @Column(name = "car_details_value_engine")
+//    private String valueEngine;
 //
-//    @Column(name = "year_of_issue")
+//    @Column(name = "car_details_type_transmission")
+//    private String typeTransmission;
+//
+//    @Column(name = "car_details_type_body")
+//    private String typeBody;
+//
+//    @Column(name = "car_details_year_of_issue")
 //    private String yearOfIssue;
 //
 //    @OneToOne(fetch = FetchType.LAZY)

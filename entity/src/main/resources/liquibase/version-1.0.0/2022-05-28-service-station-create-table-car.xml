@@ -17,6 +17,8 @@
                 car_number varchar(50),
                 constraint car_pk primary key (id)
             );
+--             car_details int,
+--                 constraint car_carDetails_fk foreign key (car_details) references car_details (car_id) ON DELETE CASCADE,
         </sql>
     </changeSet>
 </databaseChangeLog>

@@ -2,6 +2,7 @@ package by.academy_it.controller;
 
 import by.academy_it.entity.Car;
 import by.academy_it.service.CarService;
+import by.academy_it.service.dto.CarDto;
 import by.academy_it.service.impl.CarServiceImpl;
 
 import javax.servlet.RequestDispatcher;
@@ -19,17 +20,13 @@ public class CarServlet extends HttpServlet {
 
     private final CarService carService = new CarServiceImpl();
 
-    public void init() throws ServletException {
-    }
-
     @Override
     protected void doGet(HttpServletRequest request,
                          HttpServletResponse response)
             throws ServletException, IOException {
-//         request.getServletPath();
-        List<Car> listCar = carService.showAllCar();
+        List<CarDto> listCar = carService.showAllCar();
         request.setAttribute("listCar", listCar);
-        request.getRequestDispatcher("web/car.jsp").forward(request, response);
+        request.getRequestDispatcher("car1.jsp").forward(request, response);
 
     }
 

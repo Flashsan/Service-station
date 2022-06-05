@@ -13,7 +13,7 @@ import java.util.Set;
 @Getter
 @Setter
 @ToString(exclude = "orders")
-//@EqualsAndHashCode
+@EqualsAndHashCode
 @Entity
 @Table(name = "mechanic")
 public class Mechanic implements Serializable {

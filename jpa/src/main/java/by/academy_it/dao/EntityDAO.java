@@ -20,4 +20,6 @@ public interface EntityDAO<T> {
 
     void deleteById(Integer id);
 
+    void closeDao();
+
 }

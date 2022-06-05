@@ -79,4 +79,8 @@ public class EntityDaoImpl<T> implements EntityDAO<T> {
     public void deleteById(Integer id) {
 
     }
+    @Override
+    public void closeDao() {
+        entityManager.close();
+    }
 }

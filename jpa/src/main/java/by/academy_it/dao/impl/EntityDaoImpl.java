@@ -56,16 +56,6 @@ public class EntityDaoImpl<T> implements EntityDAO<T> {
     }
 
     @Override
-    public void create(List<T> list) {
-
-    }
-
-    @Override
-    public void update(List<T> list) {
-
-    }
-
-    @Override
     public void updateById(Integer id) {
 
     }

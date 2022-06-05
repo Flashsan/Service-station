@@ -13,6 +13,7 @@
     <title>Service station</title>
 </head>
 <body>
+<c:import url="header.jsp"/>
 <h2>Hello World</h2>
 <div class="container">
     <!-- Content here -->
@@ -34,6 +35,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-</body>
+<footer>
+    <jsp:include page="footer.jsp"/>
+</footer>
 </body>
 </html>

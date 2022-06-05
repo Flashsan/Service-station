@@ -26,7 +26,7 @@ public class CarServlet extends HttpServlet {
             throws ServletException, IOException {
         List<CarDto> listCar = carService.showAllCar();
         request.setAttribute("listCar", listCar);
-        request.getRequestDispatcher("car1.jsp").forward(request, response);
+        request.getRequestDispatcher("car.jsp").forward(request, response);
 
     }
 

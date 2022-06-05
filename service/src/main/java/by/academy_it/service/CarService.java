@@ -9,5 +9,9 @@ public interface CarService {
 
     List<CarDto> showAllCar();
 
+    void createCar(String model,
+                   String color,
+                   String number);
+
 
 }

@@ -19,6 +19,7 @@
 </head>
 <body>
 <caption><h2>List of Car</h2></caption>
+<a href="addCar">ADD NEW CAR</a>
 <form action="listCar" method="get">
     <table class="table table-hover">
         <thread>
@@ -38,6 +39,8 @@
                 <td><c:out value="${car.model}"/></td>
                 <td><c:out value="${car.color}"/></td>
                 <td><c:out value="${car.number}"/></td>
+                <td><a href="addCar?carId=${car.id}">EDIT</a></td>
+                <td><a href="deleteCar?carId=${car.id}">DELETE</a></td>
             </tr>
         </c:forEach>
         </tbody>

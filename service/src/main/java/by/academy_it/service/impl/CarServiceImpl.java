@@ -24,6 +24,14 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
+    public CarDto findById(Integer carId) {
+        CarDAO carDAO = ProviderDao.getInstance().getCarDao();
+        CarDto carDto = new CarDto(carDAO.findById(carId));
+        carDAO.closeDao();
+        return carDto;
+    }
+
+    @Override
     public void createCar(String model,
                           String color,
                           String number) {
@@ -34,6 +42,27 @@ public class CarServiceImpl implements CarService {
                 .number(number)
                 .build();
         carDAO.create(carCreate);
+        carDAO.closeDao();
+    }
+
+    @Override
+    public void updateInformationAboutCar(Integer carId,
+                                          String model,
+                                          String color,
+                                          String number) {
+        CarDAO carDAO = ProviderDao.getInstance().getCarDao();
+        Car carCreate = carDAO.findById(carId);
+        carCreate.setModel(model);
+        carCreate.setColor(color);
+        carCreate.setNumber(number);
+        carDAO.create(carCreate);
+        carDAO.closeDao();
+    }
+
+    @Override
+    public void deleteCar(Integer idCar) {
+        CarDAO carDAO = ProviderDao.getInstance().getCarDao();
+        carDAO.deleteById(idCar);
         carDAO.closeDao();
     }
 }

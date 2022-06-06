@@ -10,7 +10,7 @@ public interface EntityDAO<T> {
 
     void create(T t);
 
-    void updateById(Integer id);
+    void updateById(T t);
 
     void deleteAll(List<T> list);
 

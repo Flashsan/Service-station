@@ -56,8 +56,26 @@ public class EntityDaoImpl<T> implements EntityDAO<T> {
     }
 
     @Override
-    public void updateById(Integer id) {
+    public void updateById(T t) {
+        try {
+            entityManager.getTransaction().begin();
+            entityManager.merge(t);
+            entityManager.getTransaction().commit();
+        } catch (RuntimeException e) {
+            entityManager.getTransaction().rollback();
+        }
+    }
 
+    @Override
+    public void deleteById(Integer id) {
+        try {
+            T entity = entityManager.find(aClass, id);
+            entityManager.getTransaction().begin();
+            entityManager.remove(entity);
+            entityManager.getTransaction().commit();
+        } catch (RuntimeException e) {
+            entityManager.getTransaction().rollback();
+        }
     }
 
     @Override
@@ -65,10 +83,6 @@ public class EntityDaoImpl<T> implements EntityDAO<T> {
 
     }
 
-    @Override
-    public void deleteById(Integer id) {
-
-    }
     @Override
     public void closeDao() {
         entityManager.close();

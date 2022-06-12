@@ -13,21 +13,21 @@ import java.util.stream.Collectors;
 
 public class CarServiceImpl implements CarService {
 
+    //отдельный метод для получения dao
+
     @Override
     public List<CarDto> showAllCar() {
         CarDAO carDAO = ProviderDao.getInstance().getCarDao();
         List<CarDto> resultList = carDAO.findAll().stream()
                 .map(CarDto::new)
                 .collect(Collectors.toList());
-        carDAO.closeDao();
         return resultList;
     }
 
     @Override
-    public CarDto findById(Integer carId) {
+    public CarDto findCarById(Integer carId) {
         CarDAO carDAO = ProviderDao.getInstance().getCarDao();
-        CarDto carDto = new CarDto(carDAO.findById(carId));
-        carDAO.closeDao();
+        CarDto carDto = new CarDto(carDAO.find(carId));
         return carDto;
     }
 
@@ -41,8 +41,7 @@ public class CarServiceImpl implements CarService {
                 .color(color)
                 .number(number)
                 .build();
-        carDAO.create(carCreate);
-        carDAO.closeDao();
+        carDAO.save(carCreate);
     }
 
     @Override
@@ -51,18 +50,18 @@ public class CarServiceImpl implements CarService {
                                           String color,
                                           String number) {
         CarDAO carDAO = ProviderDao.getInstance().getCarDao();
-        Car carCreate = carDAO.findById(carId);
+        Car carCreate = carDAO.find(carId);
         carCreate.setModel(model);
         carCreate.setColor(color);
         carCreate.setNumber(number);
-        carDAO.create(carCreate);
-        carDAO.closeDao();
+        carDAO.save(carCreate);
     }
 
     @Override
     public void deleteCar(Integer idCar) {
         CarDAO carDAO = ProviderDao.getInstance().getCarDao();
-        carDAO.deleteById(idCar);
-        carDAO.closeDao();
+        carDAO.delete(idCar);
     }
+
+
 }

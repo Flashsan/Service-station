@@ -1,5 +1,6 @@
 package by.academy_it.dao;
 
+import by.academy_it.dao.impl.AdministratorDaoImpl;
 import by.academy_it.dao.impl.CarDaoImpl;
 import by.academy_it.dao.impl.ClientDaoImpl;
 import by.academy_it.dao.impl.MechanicDaoImpl;
@@ -35,6 +36,10 @@ public class ProviderDao {
 
     public MechanicDAO getMechanicDao() {
         return new MechanicDaoImpl(factory.createEntityManager());
+    }
+
+    public AdministratorDAO getAdministratorDao() {
+        return new AdministratorDaoImpl(factory.createEntityManager());
     }
 
 }

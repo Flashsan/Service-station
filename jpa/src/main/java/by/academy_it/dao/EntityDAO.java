@@ -2,20 +2,19 @@ package by.academy_it.dao;
 
 import java.util.List;
 
+/**
+ * @param <T>
+ */
 public interface EntityDAO<T> {
 
     List<T> findAll();
 
-    T findById(Integer id);
+    T find(Integer id);
 
-    void create(T t);
+    void save(T t);
 
-    void updateById(T t);
+    void update(T t);
 
-    void deleteAll(List<T> list);
-
-    void deleteById(Integer id);
-
-    void closeDao();
+    void delete(Integer id);
 
 }

@@ -10,7 +10,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <html>
 <head>
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -19,7 +18,10 @@
 </head>
 <body>
 <caption><h2>List of Car</h2></caption>
-<a href="addCar">ADD NEW CAR</a>
+<div class="addButton">
+    <a href="addCar">ADD NEW CAR</a>
+</div>
+
 <form action="listCar" method="get">
     <table class="table table-hover">
         <thread>
@@ -33,14 +35,18 @@
             </tr>
         </thread>
         <tbody>
-        <c:forEach var="car" items="${listCar}">
+        <c:forEach var="listCar" items="${listCar}">
             <tr>
-                <td><c:out value="${car.id}"/></td>
-                <td><c:out value="${car.model}"/></td>
-                <td><c:out value="${car.color}"/></td>
-                <td><c:out value="${car.number}"/></td>
-                <td><a href="addCar?carId=${car.id}">EDIT</a></td>
-                <td><a href="deleteCar?carId=${car.id}">DELETE</a></td>
+                <td><c:out value="${listCar.id}"/></td>
+                <td><c:out value="${listCar.model}"/></td>
+                <td><c:out value="${listCar.color}"/></td>
+                <td><c:out value="${listCar.number}"/></td>
+                <td><a href="editCar?carId=${listCar.id}">EDIT</a></td>
+                <i class="bi bi-trash">
+                    <td><a href="deleteCar?carId=${listCar.id}">DELETE</a></td>
+                </i>
+
+
             </tr>
         </c:forEach>
         </tbody>

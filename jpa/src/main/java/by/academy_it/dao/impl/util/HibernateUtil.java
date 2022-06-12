@@ -1,12 +1,10 @@
-package by.academy_it.util;
+package by.academy_it.dao.impl.util;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-/**
- *
- */
+
 public class HibernateUtil {
 
     private static final EntityManagerFactory ENTITY_MANAGER_FACTORY;

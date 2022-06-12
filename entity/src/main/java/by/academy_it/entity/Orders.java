@@ -1,32 +1,28 @@
-package by.academy_it.service_station.entity;
+package by.academy_it.entity;
 
-
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Objects;
 
-
-//@Builder
-//@NoArgsConstructor
-//@AllArgsConstructor
-//@Getter
-//@Setter
-//@ToString
-//@EqualsAndHashCode
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 @Entity
 @Table(name = "orders")
 public class Orders implements Serializable {
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name = "id")
-//    private Integer id;
-//
-//    @Column(name = "description_orders")
-//    private String descriptionOrders;
-//
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "orders_id")
+    private Integer ordersId;
+
+    @Column(name = "orders_description")
+    private String ordersDescription;
+
 //    @ManyToMany(mappedBy = "orders")
 //    private Set<Mechanic> mechanic = new HashSet<>();
 //

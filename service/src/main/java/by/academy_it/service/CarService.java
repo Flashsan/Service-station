@@ -9,7 +9,7 @@ public interface CarService {
 
     List<CarDto> showAllCar();
 
-    CarDto findById(Integer carId);
+    CarDto findCarById(Integer carId);
 
     void createCar(String model,
                    String color,

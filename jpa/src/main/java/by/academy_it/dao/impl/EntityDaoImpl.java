@@ -1,9 +1,9 @@
 package by.academy_it.dao.impl;
 
 import by.academy_it.dao.EntityDAO;
+import by.academy_it.entity.Car;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -12,8 +12,7 @@ import java.util.List;
 
 public class EntityDaoImpl<T> implements EntityDAO<T> {
 
-    protected EntityManager entityManager;
-
+    protected static EntityManager entityManager;
     private final Class<T> aClass;
 
     public EntityDaoImpl(EntityManager entityManager,
@@ -33,18 +32,20 @@ public class EntityDaoImpl<T> implements EntityDAO<T> {
     }
 
     @Override
-    public T findById(Integer id) {
+    public T find(Integer id) {
         T entity = null;
         try {
             entity = entityManager.find(aClass, id);
+
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
         }
+        entityManager.close();
         return entity;
     }
 
     @Override
-    public void create(T t) {
+    public void save(T t) {
         try {
             entityManager.getTransaction().begin();
             entityManager.persist(t);
@@ -53,10 +54,11 @@ public class EntityDaoImpl<T> implements EntityDAO<T> {
             entityManager.getTransaction().rollback();
             e.printStackTrace();
         }
+        entityManager.close();
     }
 
     @Override
-    public void updateById(T t) {
+    public void update(T t) {
         try {
             entityManager.getTransaction().begin();
             entityManager.merge(t);
@@ -64,10 +66,12 @@ public class EntityDaoImpl<T> implements EntityDAO<T> {
         } catch (RuntimeException e) {
             entityManager.getTransaction().rollback();
         }
+        entityManager.close();
     }
 
+
     @Override
-    public void deleteById(Integer id) {
+    public void delete(Integer id) {
         try {
             T entity = entityManager.find(aClass, id);
             entityManager.getTransaction().begin();
@@ -76,15 +80,9 @@ public class EntityDaoImpl<T> implements EntityDAO<T> {
         } catch (RuntimeException e) {
             entityManager.getTransaction().rollback();
         }
-    }
-
-    @Override
-    public void deleteAll(List<T> list) {
-
-    }
-
-    @Override
-    public void closeDao() {
         entityManager.close();
     }
+
+
+
 }

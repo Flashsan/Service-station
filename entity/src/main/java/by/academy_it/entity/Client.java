@@ -3,6 +3,8 @@ package by.academy_it.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Objects;
 import java.util.Set;
 
 @Builder
@@ -10,24 +12,22 @@ import java.util.Set;
 @AllArgsConstructor
 @Getter
 @Setter
-@ToString
-//@EqualsAndHashCode
-@Table(name = "client")
 @Entity
-public class Client {
+@Table(name = "client")
+public class Client implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Integer id;
+    @Column(name = "client_id")
+    private Integer clientId;
 
     @Column(name = "client_name")
-    private String name;
+    private String clientName;
 
-    @Column(name = "client_surname")
-    private String surname;
+    @Column(name = "client_lastname")
+    private String clientLastname;
 
-//    @OneToOne(
+    //    @OneToOne(
 //            mappedBy = "client",
 //            cascade = CascadeType.ALL
 //    )

@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Builder
@@ -12,27 +13,25 @@ import java.util.Set;
 @AllArgsConstructor
 @Getter
 @Setter
-@ToString(exclude = "orders")
-@EqualsAndHashCode
 @Entity
 @Table(name = "mechanic")
 public class Mechanic implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Integer id;
+    @Column(name = "mechanicId")
+    private Integer mechanicId;
 
     @Column(name = "mechanic_name")
-    private String name;
+    private String mechanicName;
 
-    @Column(name = "mechanic_surname")
-    private String surname;
+    @Column(name = "mechanic_lastname")
+    private String mechanicLastname;
 
     @Column(name = "mechanic_work_experience")
-    private String workExperience;
+    private String mechanicWorkExperience;
 
-//    @OneToOne(
+    //    @OneToOne(
 //            mappedBy = "mechanic",
 //            cascade = CascadeType.ALL
 //    )
@@ -45,6 +44,5 @@ public class Mechanic implements Serializable {
 //            inverseJoinColumns = {@JoinColumn(name = "orders_id")}
 //    )
 //    private Set<Orders> orders = new HashSet<>();
-
 
 }

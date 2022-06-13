@@ -4,8 +4,6 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Objects;
-import java.util.Set;
 
 @Builder
 @NoArgsConstructor
@@ -24,8 +22,8 @@ public class Client implements Serializable {
     @Column(name = "client_name")
     private String clientName;
 
-    @Column(name = "client_lastname")
-    private String clientLastname;
+    @Column(name = "client_last_name")
+    private String clientLastName;
 
     //    @OneToOne(
 //            mappedBy = "client",

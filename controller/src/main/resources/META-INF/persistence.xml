@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+    <persistence-unit name="unit">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>by.academy_it.entity.Car</class>
+        <class>by.academy_it.entity.Client</class>
+        <class>by.academy_it.entity.Mechanic</class>
+        <class>by.academy_it.entity.Administrator</class>
+        <class>by.academy_it.entity.Orders</class>
+        <class>by.academy_it.entity.SparePart</class>
+        <class>by.academy_it.entity.WorkList</class>
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:mysql://localhost:3306/service_station?createDatabaseIfNotExist=true"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value="grigorovich_1"/>
+            <property name="hibernate.dialect.storage_engine" value="innodb"/>
+            <property name="hibernate.hbm" value="innodb"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.use_sql_comments" value="true"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.connection.pool_size" value="10"/>
+            <property name="hibernate.connection.isolation" value="2"/>
+        </properties>
+    </persistence-unit>
+</persistence>

@@ -6,13 +6,17 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
 
-    <changeSet id="1-add test data to table 'client'"
+    <changeSet id="1-create table 'spare_part'"
                author="Grigorovich">
         <sql>
-            insert into client(client_name, client_last_name)
-            values ("Александр", "Григорович"),
-                   ("Григорий", "Филатов"),
-                   ("Роман", "Маликов")
+            create table spare_part
+            (
+                id                   int auto_increment,
+                spare_part_name_part varchar(50),
+                spare_part_brand     varchar(50),
+                spare_part_coast     varchar(50),
+                constraint spare_part_pk primary key (id)
+            );
         </sql>
     </changeSet>
 </databaseChangeLog>

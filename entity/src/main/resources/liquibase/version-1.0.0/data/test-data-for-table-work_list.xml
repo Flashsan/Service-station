@@ -6,13 +6,14 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
 
-    <changeSet id="1-add test data to table 'client'"
+    <changeSet id="1-add test data to table 'work_list'"
                author="Grigorovich">
         <sql>
-            insert into client(client_name, client_last_name)
-            values ("Александр", "Григорович"),
-                   ("Григорий", "Филатов"),
-                   ("Роман", "Маликов")
+            insert into work_list(work_list_name,
+                                  work_list_coast)
+            values ("Ремонт двигателя", "500 р"),
+                   ("Замена тормозной системы", "300 р"),
+                   ("Замена резины", "100")
         </sql>
     </changeSet>
 </databaseChangeLog>

@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Builder
 @NoArgsConstructor
@@ -34,4 +35,17 @@ public class Client implements Serializable {
 //    @OneToMany(mappedBy = "client")
 //    private Set<Orders> orders;
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Client client = (Client) o;
+        return Objects.equals(clientId, client.clientId) && Objects.equals(clientName, client.clientName) && Objects.equals(clientLastName, client.clientLastName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(clientId, clientName, clientLastName);
+    }
 }

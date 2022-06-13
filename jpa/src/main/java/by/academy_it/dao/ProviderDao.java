@@ -1,9 +1,6 @@
 package by.academy_it.dao;
 
-import by.academy_it.dao.impl.AdministratorDaoImpl;
-import by.academy_it.dao.impl.CarDaoImpl;
-import by.academy_it.dao.impl.ClientDaoImpl;
-import by.academy_it.dao.impl.MechanicDaoImpl;
+import by.academy_it.dao.impl.*;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -40,6 +37,13 @@ public class ProviderDao {
 
     public AdministratorDAO getAdministratorDao() {
         return new AdministratorDaoImpl(factory.createEntityManager());
+    }
+
+    public OrdersDAO getOrdersDao() {
+        return new OrdersDaoImpl(factory.createEntityManager());
+    }
+    public SparePartDAO getSparePartDao() {
+        return new SparePartDaoImpl(factory.createEntityManager());
     }
 
 }

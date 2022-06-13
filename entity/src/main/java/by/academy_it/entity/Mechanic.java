@@ -4,9 +4,6 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 
 @Builder
 @NoArgsConstructor
@@ -25,8 +22,8 @@ public class Mechanic implements Serializable {
     @Column(name = "mechanic_name")
     private String mechanicName;
 
-    @Column(name = "mechanic_lastname")
-    private String mechanicLastname;
+    @Column(name = "mechanic_last_name")
+    private String mechanicLastName;
 
     @Column(name = "mechanic_work_experience")
     private String mechanicWorkExperience;

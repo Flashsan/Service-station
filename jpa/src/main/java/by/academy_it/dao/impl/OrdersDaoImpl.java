@@ -8,8 +8,7 @@ import javax.persistence.EntityManager;
 public class OrdersDaoImpl extends EntityDaoImpl<Orders>
         implements OrdersDAO {
 
-    public OrdersDaoImpl(EntityManager entityManager,
-                         Class<Orders> aClass) {
-        super(entityManager, aClass);
+    public OrdersDaoImpl(EntityManager entityManager) {
+        super(entityManager, Orders.class);
     }
 }

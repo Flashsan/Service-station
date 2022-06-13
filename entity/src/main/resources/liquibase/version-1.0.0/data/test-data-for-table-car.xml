@@ -14,11 +14,5 @@
                    ("Audi A4 B8", "grey", "4884 II-2"),
                    ("Bmv X5", "black", "8888 MI-7")
         </sql>
-        <!--        <sql>-->
-        <!--            insert into car(car_model, car_color, car_number, car_details)-->
-        <!--            values ("Peugeot 407", "black", "3663 PI-7", 1),-->
-        <!--                   ("Audi A4 B8", "grey", "4884 II-2", 2),-->
-        <!--                   ("Bmv X5", "black", "8888 MI-7", 3)-->
-        <!--        </sql>-->
     </changeSet>
 </databaseChangeLog>

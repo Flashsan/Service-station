@@ -9,7 +9,7 @@
     <changeSet id="1-add test data to table 'mechanic'"
                author="Grigorovich">
         <sql>
-            insert into mechanic(mechanic_name, mechanic_surname, mechanic_work_experience)
+            insert into mechanic(mechanic_name, mechanic_last_name, mechanic_work_experience)
             values ("Петр", "Галкин", "4,5"),
                    ("Михаил", "Яшкин", "1,5"),
                    ("Николай", "Альферович", "10")

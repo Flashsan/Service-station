@@ -6,11 +6,11 @@ import by.academy_it.entity.SparePart;
 
 import javax.persistence.EntityManager;
 
-public class SparePartDaoImpl extends EntityDaoImpl<SparePart>
+public class SparePartDaoImpl
+        extends EntityDaoImpl<SparePart>
         implements SparePartDAO {
 
-    public SparePartDaoImpl(EntityManager entityManager,
-                            Class<SparePart> aClass) {
-        super(entityManager, aClass);
+    public SparePartDaoImpl(EntityManager entityManager) {
+        super(entityManager, SparePart.class);
     }
 }

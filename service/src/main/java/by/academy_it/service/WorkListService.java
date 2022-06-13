@@ -32,36 +32,32 @@ public interface WorkListService {
     /**
      * service - create work list
      *
-     * @param namePart
-     * @param brand
+     * @param name
      * @param coast
      */
-    void createSparePart(
-            String namePart,
-            String brand,
+    void createWorkList(
+            String name,
             String coast);
 
     /**
-     * service - update information about spare part
+     * service - update information about work list
      *
      * @param id
-     * @param namePart
-     * @param brand
+     * @param name
      * @param coast
      */
-    void updateInformationAboutSparePart(
+    void updateInformationAboutWorkList(
             Integer id,
-            String namePart,
-            String brand,
+            String name,
             String coast
     );
 
     /**
-     * service - delete spare part by id
+     * service - delete work list by id
      *
      * @param id
      */
-    void deleteSparePart(Integer id);
+    void deleteWorkList(Integer id);
 
 
 }

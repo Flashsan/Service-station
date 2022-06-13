@@ -46,4 +46,8 @@ public class ProviderDao {
         return new SparePartDaoImpl(factory.createEntityManager());
     }
 
+    public WorkListDAO getWorkListDao() {
+        return new WorkListDaoImpl(factory.createEntityManager());
+    }
+
 }

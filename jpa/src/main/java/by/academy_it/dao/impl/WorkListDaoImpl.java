@@ -9,8 +9,7 @@ import javax.persistence.EntityManager;
 public class WorkListDaoImpl extends EntityDaoImpl<WorkList>
         implements WorkListDAO {
 
-    public WorkListDaoImpl(EntityManager entityManager,
-                           Class<WorkList> aClass) {
-        super(entityManager, aClass);
+    public WorkListDaoImpl(EntityManager entityManager) {
+        super(entityManager, WorkList.class);
     }
 }

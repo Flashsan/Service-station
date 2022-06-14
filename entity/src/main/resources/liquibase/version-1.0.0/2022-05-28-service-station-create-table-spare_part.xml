@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <changeSet id="1-create table 'spare_part'"
+               author="Grigorovich">
+        <sql>
+            create table spare_part
+            (
+                spare_part_id        int auto_increment,
+                spare_part_name_part varchar(50),
+                spare_part_brand     varchar(50),
+                spare_part_coast     varchar(50),
+                constraint spare_part_pk
+                    primary key (spare_part_id)
+            );
+        </sql>
+    </changeSet>
+</databaseChangeLog>

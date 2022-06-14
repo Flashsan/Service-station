@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <changeSet id="1-add test data to table 'spare_part'"
+               author="Grigorovich">
+        <sql>
+            insert into spare_part(spare_part_name_part, spare_part_brand, spare_part_coast)
+            values ("Шрус", "Patron", "150 р"),
+                   ("Тормозные колодки", "Brembo", "60 р"),
+                   ("Рулевой наконечник", "Patron", "20 р"),
+                   ("Резина", "Belshina", "100 р"),
+                   ("Замена прокладки поддона", "Patron", "100 р");
+        </sql>
+    </changeSet>
+</databaseChangeLog>

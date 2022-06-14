@@ -9,10 +9,10 @@
     <changeSet id="1-add test data to table 'orders'"
                author="Grigorovich">
         <sql>
-            insert into orders(orders_description)
-            values ("Замена масла"),
-                   ("Заправка кондиционера"),
-                   ("Замена антифриза")
+            insert into orders(orders_description, administrator_id)
+            values ("Замена масла", 1),
+                   ("Заправка кондиционера", 2),
+                   ("Замена антифриза", 1)
         </sql>
     </changeSet>
 </databaseChangeLog>

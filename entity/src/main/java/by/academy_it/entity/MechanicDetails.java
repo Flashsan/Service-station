@@ -1,6 +1,5 @@
 package by.academy_it.entity;
 
-
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
@@ -16,15 +15,15 @@ import java.util.Objects;
 @Setter
 @Entity
 @Table(name = "mechanic_details")
-public class MechanicDetail implements Serializable {
+public class MechanicDetails implements Serializable {
 
     @Id
     @GenericGenerator(
-            name = "one-to-one(mechanic-mechanic_detail",
+            name = "one-to-one(mechanic-mechanic_details",
             strategy = "foreign",
             parameters = @Parameter(name = "property", value = "mechanic")
     )
-    @GeneratedValue(generator = "one-to-one(mechanic-mechanic_detail")
+    @GeneratedValue(generator = "one-to-one(mechanic-mechanic_details")
     @Column(name = "mechanic_id")
     private Integer mechanicId;
 
@@ -33,17 +32,17 @@ public class MechanicDetail implements Serializable {
 
     @Column(name = "mechanic_salary")
     private String mechanicSalary;
-//
-//    @OneToOne(fetch = FetchType.LAZY)
-//    @PrimaryKeyJoinColumn
-//    private Mechanic mechanic;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @PrimaryKeyJoinColumn
+    private Mechanic mechanic;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        MechanicDetail that = (MechanicDetail) o;
-        return Objects.equals(mechanicId, that.mechanicId) && Objects.equals(mechanicExperience, that.mechanicExperience) && Objects.equals(mechanicSalary, that.mechanicSalary);
+        MechanicDetails that = (MechanicDetails) o;
+        return Objects.equals(mechanicId, that.mechanicId);
     }
 
     @Override

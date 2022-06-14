@@ -11,13 +11,14 @@
         <sql>
             create table car_details
             (
-                car_id                        int auto_increment,
+                car_details_id                int auto_increment,
                 car_details_type_engine       varchar(50),
                 car_details_value_engine      varchar(50),
                 car_details_type_transmission varchar(50),
                 car_details_type_body         varchar(50),
                 car_details_year_of_issue     varchar(50),
-                constraint car_details_pk primary key (car_id)
+                constraint car_details_pk
+                    primary key (car_details_id)
             );
         </sql>
     </changeSet>

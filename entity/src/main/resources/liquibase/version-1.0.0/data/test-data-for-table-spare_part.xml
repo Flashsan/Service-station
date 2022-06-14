@@ -12,7 +12,9 @@
             insert into spare_part(spare_part_name_part, spare_part_brand, spare_part_coast)
             values ("Шрус", "Patron", "150 р"),
                    ("Тормозные колодки", "Brembo", "60 р"),
-                   ("Рулевой наконечник", "Patron", "20 р")
+                   ("Рулевой наконечник", "Patron", "20 р"),
+                   ("Резина", "Belshina", "100 р"),
+                   ("Замена прокладки поддона", "Patron", "100 р");
         </sql>
     </changeSet>
 </databaseChangeLog>

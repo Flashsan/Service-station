@@ -1,6 +1,5 @@
 package by.academy_it.service.dto;
 
-import by.academy_it.entity.SparePart;
 import by.academy_it.entity.WorkList;
 import lombok.*;
 
@@ -22,7 +21,7 @@ public class WorkListDto {
     private String coast;
 
     public WorkListDto(WorkList workList) {
-        this.id = workList.getId();
+        this.id = workList.getWorkListId();
         this.name = workList.getWorkListName();
         this.coast = workList.getWorkListCoast();
     }

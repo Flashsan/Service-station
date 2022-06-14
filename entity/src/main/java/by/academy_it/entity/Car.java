@@ -1,9 +1,11 @@
 package by.academy_it.entity;
 
 import lombok.*;
+import org.hibernate.annotations.Fetch;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 @Builder
@@ -17,40 +19,39 @@ public class Car implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Integer id;
+    @Column(name = "car_id")
+    private Integer carId;
 
     @Column(name = "car_model")
-    private String model;
+    private String carModel;
 
     @Column(name = "car_color")
-    private String color;
+    private String carColor;
 
     @Column(name = "car_number")
-    private String number;
+    private String carNumber;
 
-    //    @OneToOne(
+    @OneToMany(
+            mappedBy = "car",
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private List<Orders> orders;
+
+//    @OneToOne(
 //            mappedBy = "car",
 //            cascade = CascadeType.ALL
 //    )
 //    private CarDetails carDetails;
-
-//    @OneToMany(mappedBy = "car")
-//    @Fetch(FetchMode.SELECT)
-//    private Set<Orders> orders = new HashSet<>();
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Car car = (Car) o;
-        return Objects.equals(id, car.id) && Objects.equals(model, car.model) && Objects.equals(color, car.color) && Objects.equals(number, car.number);
+        return Objects.equals(carId, car.carId);
     }
-
     @Override
     public int hashCode() {
-        return Objects.hash(id, model, color, number);
+        return Objects.hash(carId, carModel, carColor, carNumber, orders);
     }
-
-
 }

@@ -13,8 +13,6 @@ import java.util.stream.Collectors;
 
 public class CarServiceImpl implements CarService {
 
-    //отдельный метод для получения dao
-
     @Override
     public List<CarDto> showAllCar() {
         CarDAO carDAO = ProviderDao.getInstance().getCarDao();
@@ -37,9 +35,9 @@ public class CarServiceImpl implements CarService {
                           String number) {
         CarDAO carDAO = ProviderDao.getInstance().getCarDao();
         Car carCreate = Car.builder()
-                .model(model)
-                .color(color)
-                .number(number)
+                .carModel(model)
+                .carColor(color)
+                .carNumber(number)
                 .build();
         carDAO.save(carCreate);
     }
@@ -51,9 +49,9 @@ public class CarServiceImpl implements CarService {
                                           String number) {
         CarDAO carDAO = ProviderDao.getInstance().getCarDao();
         Car carCreate = carDAO.find(carId);
-        carCreate.setModel(model);
-        carCreate.setColor(color);
-        carCreate.setNumber(number);
+        carCreate.setCarModel(model);
+        carCreate.setCarColor(color);
+        carCreate.setCarNumber(number);
         carDAO.save(carCreate);
     }
 

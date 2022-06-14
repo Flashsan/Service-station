@@ -4,7 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
-
+import java.util.Set;
 
 @Builder
 @NoArgsConstructor
@@ -17,7 +17,8 @@ public class WorkList implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @Column(name = "work_list_id")
+    private Integer workListId;
 
     @Column(name = "work_list_name")
     private String workListName;
@@ -25,10 +26,12 @@ public class WorkList implements Serializable {
     @Column(name = "work_list_coast")
     private String workListCoast;
 
-//    @OneToMany(mappedBy = "workList")
-//    private Set<Orders> orders;
-//
-//    @OneToMany(mappedBy = "workList")
-//    private Set<SparePart> sparePart;
+    @OneToMany(mappedBy = "workList")
+    private Set<SparePart> sparePart;
+
+    @OneToMany(mappedBy = "workList")
+    private Set<Orders> orders;
+
+
 
 }

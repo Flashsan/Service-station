@@ -11,11 +11,11 @@
         <sql>
             create table mechanic
             (
-                id            int auto_increment,
-                mechanic_name varchar(50),
-                mechanic_last_name varchar(50),
+                mechanic_id              int auto_increment,
+                mechanic_name            varchar(50),
+                mechanic_last_name       varchar(50),
                 mechanic_work_experience varchar(50),
-                constraint mechanic_pk primary key (id)
+                constraint mechanic_pk primary key (mechanic_id)
             );
         </sql>
     </changeSet>

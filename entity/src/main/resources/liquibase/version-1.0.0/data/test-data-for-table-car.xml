@@ -12,7 +12,7 @@
             insert into car(car_model, car_color, car_number)
             values ("Peugeot 407", "black", "3663 PI-7"),
                    ("Audi A4 B8", "grey", "4884 II-2"),
-                   ("Bmv X5", "black", "8888 MI-7")
+                   ("Bmv X5", "black", "8888 MI-7");
         </sql>
     </changeSet>
 </databaseChangeLog>

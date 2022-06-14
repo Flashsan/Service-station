@@ -1,10 +1,10 @@
 package by.academy_it.dao;
 
 
-import by.academy_it.entity.MechanicDetail;
+import by.academy_it.entity.MechanicDetails;
 
 public interface MechanicDetailDAO
-        extends EntityDAO<MechanicDetail> {
+        extends EntityDAO<MechanicDetails> {
 
 
 }

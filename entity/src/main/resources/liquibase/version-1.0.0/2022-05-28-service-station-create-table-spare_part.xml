@@ -11,11 +11,12 @@
         <sql>
             create table spare_part
             (
-                id                   int auto_increment,
+                spare_part_id        int auto_increment,
                 spare_part_name_part varchar(50),
                 spare_part_brand     varchar(50),
                 spare_part_coast     varchar(50),
-                constraint spare_part_pk primary key (id)
+                constraint spare_part_pk
+                    primary key (spare_part_id)
             );
         </sql>
     </changeSet>

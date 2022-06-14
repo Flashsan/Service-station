@@ -16,10 +16,10 @@ public class CarDto {
     private Integer carDetails;
 
     public CarDto(Car car) {
-        this.id = car.getId();
-        this.model = car.getModel();
-        this.color = car.getColor();
-        this.number = car.getNumber();
+        this.id = car.getCarId();
+        this.model = car.getCarModel();
+        this.color = car.getCarColor();
+        this.number = car.getCarNumber();
 
     }
 

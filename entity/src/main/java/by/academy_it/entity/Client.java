@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.Set;
 
 @Builder
 @NoArgsConstructor
@@ -26,14 +27,14 @@ public class Client implements Serializable {
     @Column(name = "client_last_name")
     private String clientLastName;
 
-    //    @OneToOne(
-//            mappedBy = "client",
-//            cascade = CascadeType.ALL
-//    )
-//    private ClientDetail clientDetail;
-//
-//    @OneToMany(mappedBy = "client")
-//    private Set<Orders> orders;
+        @OneToOne(
+            mappedBy = "client",
+            cascade = CascadeType.ALL
+    )
+    private ClientDetails clientDetails;
+
+    @OneToMany(mappedBy = "client")
+    private Set<Orders> orders;
 
 
     @Override

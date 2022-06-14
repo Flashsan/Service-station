@@ -11,10 +11,15 @@
         <sql>
             create table work_list
             (
-                id              int auto_increment,
-                work_list_name  varchar(50),
-                work_list_coast varchar(50),
-                constraint work_list_pk primary key (id)
+                id                      int auto_increment,
+                work_list_name          varchar(50),
+                work_list_coast         varchar(50),
+                work_list_spare_part_id int,
+                constraint work_list_pk
+                    primary key (id),
+                constraint work_list_spare_part_fk
+                    foreign key (work_list_spare_part_id)
+                        references spare_part (spare_part_id)
             );
         </sql>
     </changeSet>

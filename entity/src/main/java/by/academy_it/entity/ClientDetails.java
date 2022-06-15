@@ -16,12 +16,12 @@ import java.io.Serializable;
 @Table(name = "clients_details")
 public class ClientDetails implements Serializable {
     @Id
-    @GenericGenerator(
-            name = "one-to-one(client-client_details)",
-            strategy = "foreign",
-            parameters = @Parameter(name = "property", value = "client")
-    )
-    @GeneratedValue(generator = "one-to-one(client-client_details")
+//    @GenericGenerator(
+//            name = "one-to-one(client-client_details)",
+//            strategy = "foreign",
+//            parameters = @Parameter(name = "property", value = "client")
+//    )
+//    @GeneratedValue(generator = "one-to-one(client-client_details")
     @Column(name = "client_id")
     private Integer clientId;
 }

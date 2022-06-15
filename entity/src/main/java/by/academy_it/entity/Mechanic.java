@@ -30,18 +30,18 @@ public class Mechanic implements Serializable {
     @Column(name = "mechanic_work_experience")
     private String mechanicWorkExperience;
 
-    @OneToOne(
-            mappedBy = "mechanic",
-            cascade = CascadeType.ALL
-    )
-    private MechanicDetails mechanicDetails;
+//    @OneToOne(
+//            mappedBy = "mechanic",
+//            cascade = CascadeType.ALL
+//    )
+//    private MechanicDetails mechanicDetails;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "mechanic_orders",
-            joinColumns = {@JoinColumn(name = "mechanic_id")},
-            inverseJoinColumns = {@JoinColumn(name = "orders_id")}
-    )
-    private Set<Orders> orders = new HashSet<>();
+//    @ManyToMany(cascade = CascadeType.ALL)
+//    @JoinTable(
+//            name = "mechanic_orders",
+//            joinColumns = {@JoinColumn(name = "mechanic_id")},
+//            inverseJoinColumns = {@JoinColumn(name = "orders_id")}
+//    )
+//    private Set<Orders> orders = new HashSet<>();
 
 }

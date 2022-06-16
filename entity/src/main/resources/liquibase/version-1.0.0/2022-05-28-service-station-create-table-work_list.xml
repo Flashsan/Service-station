@@ -11,15 +11,16 @@
         <sql>
             create table work_list
             (
-                id                      int auto_increment,
-                work_list_name          varchar(50),
-                work_list_coast         varchar(50),
-                work_list_spare_part_id int,
+                work_list_id    int auto_increment,
+                work_list_name  varchar(50),
+                work_list_coast varchar(50),
+                orders_id       int,
                 constraint work_list_pk
-                    primary key (id),
-                constraint work_list_spare_part_fk
-                    foreign key (work_list_spare_part_id)
-                        references spare_part (spare_part_id)
+                    primary key (work_list_id),
+                constraint work_list_orders_fk
+                    foreign key (orders_id)
+                        references orders (orders_id)
+                        ON DELETE SET NULL
             );
         </sql>
     </changeSet>

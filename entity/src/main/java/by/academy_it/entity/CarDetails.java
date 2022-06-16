@@ -18,14 +18,14 @@ import java.util.Objects;
 public class CarDetails implements Serializable {
 
     @Id
-//    @GenericGenerator(
-//            name = "one-to-one(car-car_details",
-//            strategy = "foreign",
-//            parameters = @Parameter(name = "property", value = "car")
-//    )
-//    @GeneratedValue(generator = "one-to-one(car-car_details")
-    @Column(name = "car_id")
-    private Integer carId;
+    @GenericGenerator(
+            name = "one-to-one(car-car_details",
+            strategy = "foreign",
+            parameters = @Parameter(name = "property", value = "car")
+    )
+    @GeneratedValue(generator = "one-to-one(car-car_details")
+    @Column(name = "car_details__id")
+    private Integer carDetailsId;
 
     @Column(name = "car_details_type_engine")
     private String carDetailsTypeEngine;
@@ -41,21 +41,10 @@ public class CarDetails implements Serializable {
 
     @Column(name = "car_details_year_of_issue")
     private String carDetailsYearOfIssue;
-//
-//    @OneToOne(fetch = FetchType.LAZY)
-//    @PrimaryKeyJoinColumn
-//    private Car car;
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        CarDetails that = (CarDetails) o;
-//        return Objects.equals(carId, that.carId);
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(carId, carDetailsTypeEngine, carDetailsValueEngine, carDetailsTypeTransmission, carDetailsTypeBody, carDetailsYearOfIssue);
-//    }
+    @OneToOne(fetch = FetchType.LAZY)
+    @PrimaryKeyJoinColumn
+    private Car car;
+
+
 }

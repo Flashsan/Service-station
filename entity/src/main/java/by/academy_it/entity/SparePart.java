@@ -29,8 +29,8 @@ public class SparePart implements Serializable {
     @Column(name = "spare_part_coast")
     private String sparePartCoast;
 
-//    @ManyToOne
-//    @JoinColumn(name = "work_list_id")
-//    private WorkList workList;
+    @ManyToOne
+    @JoinColumn(name = "work_list_id")
+    private WorkList workList;
 
 }

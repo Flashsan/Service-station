@@ -26,12 +26,15 @@ public class WorkList implements Serializable {
     @Column(name = "work_list_coast")
     private String workListCoast;
 
-//    @OneToMany(mappedBy = "workList")
-//    private Set<SparePart> sparePart;
-//
-//    @OneToMany(mappedBy = "workList")
-//    private Set<Orders> orders;
+    @OneToMany(mappedBy = "workList")
+    private Set<SparePart> sparePart;
 
+    @ManyToOne
+    @JoinColumn(name = "orders_id")
+    private Orders orders;
+
+    @ManyToMany(mappedBy = "work_list")
+    private Set<Mechanic> mechanic;
 
 
 }

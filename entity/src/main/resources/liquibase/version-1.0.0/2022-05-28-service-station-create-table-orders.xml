@@ -11,11 +11,11 @@
         <sql>
             create table orders
             (
-                orders_id          int auto_increment,
-                orders_description varchar(50),
-                administrator_id   int,
-                car_id             int,
-                mechanic_id        int,
+                orders_id                int auto_increment,
+                orders_description       varchar(50),
+                car_id                   int,
+                orders_inspection_result varchar(50),
+                administrator_id         int,
                 constraint orders_pk
                     primary key (orders_id),
                 constraint orders_administrator_fk
@@ -25,10 +25,6 @@
                 constraint orders_car_fk
                     foreign key (car_id)
                         references car (car_id)
-                        ON DELETE SET NULL,
-                constraint orders_mechanic_fk
-                    foreign key (mechanic_id)
-                        references mechanic (mechanic_id)
                         ON DELETE SET NULL
             );
         </sql>

@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 
 /**
@@ -50,29 +51,14 @@ public class Administrator
     )
     private String administratorLastName;
 
-//    /**
-//     * list orders
-//     */
-//    @OneToMany(
-//            mappedBy = "administrator",
-//            fetch = FetchType.LAZY,
-//            cascade = CascadeType.ALL)
-//    private List<Orders> orders;
-//
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        Administrator that = (Administrator) o;
-//        return Objects.equals(administratorId, that.administratorId);
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(
-//                administratorId,
-//                administratorName,
-//                administratorLastName,
-//                orders);
-//    }
+    /**
+     * list orders
+     */
+    @OneToMany(
+            mappedBy = "administrator",
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private List<Orders> orders;
+
+
 }

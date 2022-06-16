@@ -27,21 +27,19 @@ public class Mechanic implements Serializable {
     @Column(name = "mechanic_last_name")
     private String mechanicLastName;
 
-    @Column(name = "mechanic_work_experience")
-    private String mechanicWorkExperience;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "mechanic_work_list",
+            joinColumns = {@JoinColumn(name = "mechanic_id")},
+            inverseJoinColumns = {@JoinColumn(name = "work_list_id")}
+    )
+    private Set<WorkList> workLists;
 
-//    @OneToOne(
-//            mappedBy = "mechanic",
-//            cascade = CascadeType.ALL
-//    )
-//    private MechanicDetails mechanicDetails;
+    @OneToOne(
+            mappedBy = "mechanic",
+            cascade = CascadeType.ALL
+    )
+    private MechanicDetails mechanicDetails;
 
-//    @ManyToMany(cascade = CascadeType.ALL)
-//    @JoinTable(
-//            name = "mechanic_orders",
-//            joinColumns = {@JoinColumn(name = "mechanic_id")},
-//            inverseJoinColumns = {@JoinColumn(name = "orders_id")}
-//    )
-//    private Set<Orders> orders = new HashSet<>();
 
 }
